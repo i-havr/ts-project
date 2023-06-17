@@ -1,5 +1,4 @@
 "use strict";
-// HW module #2
 let age;
 age = 50;
 let firstName;
@@ -13,22 +12,18 @@ notInitialize = undefined;
 let callback = (a) => {
     return 100 + a;
 };
-//==================
 let anything;
 anything = -20;
 anything = "Text";
 anything = {};
-//==================
 let some;
 some = "Text";
 let str;
 if (typeof some === "string") {
     str = some;
 }
-//==================
 let user;
 user = ["Max", 21];
-//==================
 var Load;
 (function (Load) {
     Load[Load["LOADING"] = 0] = "LOADING";
@@ -41,20 +36,15 @@ if (page.load === Load.LOADING) {
 if (page.load === Load.READY) {
     console.log("Сторінка завантажена");
 }
-//==================
 let union;
-//==================
 let literal;
-//==================
 function showMessage(message) {
     console.log(message);
 }
-//==================
 function calc(num1, num2) {
     return num1 + num2;
 }
-//==================
 function customError() {
     throw new Error("Error");
 }
-// export {};
+//# sourceMappingURL=homework.js.map
