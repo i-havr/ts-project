@@ -47,4 +47,43 @@ function calc(num1, num2) {
 function customError() {
     throw new Error("Error");
 }
+const User = function (email, password) {
+    this.email = email;
+    this.password = password;
+};
+User.prototype.sayHello = function () {
+    console.log("Hello");
+    console.log("this ===>>>> ", this);
+};
+const user1 = new User("mango@gmail.com", "123456");
+console.log({ value: 1 });
+console.log("user1 ===>>>> ", user1);
+class House {
+    constructor(door, key) {
+        this.door = door;
+        this.key = key;
+        this.tenants = {};
+    }
+    comeIn() { }
+}
+class Key {
+    constructor() {
+        this.signature = Math.floor(Math.random() * 10) + 1;
+    }
+    getSignature() {
+        return this.signature;
+    }
+}
+const key = new Key();
+class Person {
+    constructor(key) {
+        this.key = key;
+    }
+}
+class MyHouse extends House {
+    super(key) {
+        this.key = key;
+    }
+    openDoor() { }
+}
 //# sourceMappingURL=homework.js.map

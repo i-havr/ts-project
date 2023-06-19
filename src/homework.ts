@@ -77,7 +77,6 @@ function showMessage(message: string): void {
 function calc(num1: number, num2: number): number {
   return num1 + num2;
 }
-
 //==================
 
 function customError(): never {
@@ -98,3 +97,58 @@ type Page = {
 };
 
 // HW module #3
+
+const User = function (this: any, email: string, password: string) {
+  this.email = email;
+  this.password = password;
+};
+
+User.prototype.sayHello = function () {
+  console.log("Hello");
+  console.log("this ===>>>> ", this);
+};
+
+const user1 = new (User as any)("mango@gmail.com", "123456");
+console.log({ value: 1 });
+
+console.log("user1 ===>>>> ", user1);
+
+class House {
+  door: "open" | "closed";
+  key: number;
+  tenants: {};
+
+  constructor(door: "open" | "closed", key: number) {
+    this.door = door;
+    this.key = key;
+    this.tenants = {};
+  }
+  comeIn() {}
+}
+
+class Key {
+  signature: number;
+
+  constructor() {
+    this.signature = Math.floor(Math.random() * 10) + 1; //returns random of 1-10
+  }
+  getSignature() {
+    return this.signature;
+  }
+}
+
+const key = new Key();
+
+class Person {
+  key: number;
+  constructor(key: number) {
+    this.key = key;
+  }
+}
+
+class MyHouse extends House {
+  super(key: number) {
+    this.key = key;
+  }
+  openDoor() {}
+}
