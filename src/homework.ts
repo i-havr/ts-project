@@ -113,18 +113,9 @@ console.log({ value: 1 });
 
 console.log("user1 ===>>>> ", user1);
 
-class House {
-  door: "open" | "closed";
-  key: number;
-  tenants: {};
+// === HOUSE ====================
 
-  constructor(door: "open" | "closed", key: number) {
-    this.door = door;
-    this.key = key;
-    this.tenants = {};
-  }
-  comeIn() {}
-}
+// === KEY ====================
 
 class Key {
   signature: number;
@@ -137,18 +128,56 @@ class Key {
   }
 }
 
-const key = new Key();
-
 class Person {
   key: number;
-  constructor(key: number) {
+  constructor(key: Key) {
+    this.key = key.getSignature();
+  }
+  getKey(): number {
+    console.log(this.key);
+
+    return this.key;
+  }
+}
+
+class House {
+  door: "open" | "closed" = "closed";
+  key: Key;
+  tenants: Person[] = [];
+
+  constructor(key: Key) {
     this.key = key;
   }
+
+  comeIn(person: Person) {
+    if (this.door === "open") {
+      this.tenants.push(person);
+    }
+  }
+
+  // openDoor(key: Key) {
+  //   if (this.key === key) {
+  //     this.door = "open";
+  //   }
+  // }
 }
 
 class MyHouse extends House {
-  super(key: number) {
-    this.key = key;
+  constructor(key: Key) {
+    super(key);
   }
-  openDoor() {}
+
+  openDoor(personKey: number) {
+    if (this.key.getSignature() === personKey) {
+      this.door = "open";
+    }
+  }
 }
+
+const key1 = new Key();
+const person1 = new Person(key1);
+
+const house1 = new MyHouse(key1);
+console.log(house1.door);
+house1.openDoor(person1.getKey());
+console.log(house1.door);

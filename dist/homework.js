@@ -58,14 +58,6 @@ User.prototype.sayHello = function () {
 const user1 = new User("mango@gmail.com", "123456");
 console.log({ value: 1 });
 console.log("user1 ===>>>> ", user1);
-class House {
-    constructor(door, key) {
-        this.door = door;
-        this.key = key;
-        this.tenants = {};
-    }
-    comeIn() { }
-}
 class Key {
     constructor() {
         this.signature = Math.floor(Math.random() * 10) + 1;
@@ -74,16 +66,41 @@ class Key {
         return this.signature;
     }
 }
-const key = new Key();
 class Person {
     constructor(key) {
+        this.key = key.getSignature();
+    }
+    getKey() {
+        console.log(this.key);
+        return this.key;
+    }
+}
+class House {
+    constructor(key) {
+        this.door = "closed";
+        this.tenants = [];
         this.key = key;
+    }
+    comeIn(person) {
+        if (this.door === "open") {
+            this.tenants.push(person);
+        }
     }
 }
 class MyHouse extends House {
-    super(key) {
-        this.key = key;
+    constructor(key) {
+        super(key);
     }
-    openDoor() { }
+    openDoor(personKey) {
+        if (this.key.getSignature() === personKey) {
+            this.door = "open";
+        }
+    }
 }
+const key1 = new Key();
+const person1 = new Person(key1);
+const house1 = new MyHouse(key1);
+console.log(house1.door);
+house1.openDoor(person1.getKey());
+console.log(house1.door);
 //# sourceMappingURL=homework.js.map
