@@ -71,15 +71,14 @@ class Person {
         this.key = key.getSignature();
     }
     getKey() {
-        console.log(this.key);
         return this.key;
     }
 }
 class House {
     constructor(key) {
+        this.key = key;
         this.door = "closed";
         this.tenants = [];
-        this.key = key;
     }
     comeIn(person) {
         if (this.door === "open") {
@@ -92,15 +91,21 @@ class MyHouse extends House {
         super(key);
     }
     openDoor(personKey) {
+        console.log("houseKey => ", this.key.getSignature(), "personKey => ", personKey);
         if (this.key.getSignature() === personKey) {
+            console.log("DOOR IS OPEN!");
             this.door = "open";
+        }
+        else {
+            console.log("DOOR IS CLOSED!");
         }
     }
 }
-const key1 = new Key();
-const person1 = new Person(key1);
-const house1 = new MyHouse(key1);
-console.log(house1.door);
-house1.openDoor(person1.getKey());
-console.log(house1.door);
+const houseKey = new Key();
+const personKey = new Key();
+const person = new Person(personKey);
+const house = new MyHouse(houseKey);
+house.openDoor(person.getKey());
+house.comeIn(person);
+console.log(house.tenants);
 //# sourceMappingURL=homework.js.map

@@ -118,7 +118,7 @@ console.log("user1 ===>>>> ", user1);
 // === KEY ====================
 
 class Key {
-  signature: number;
+  private signature: number;
 
   constructor() {
     this.signature = Math.floor(Math.random() * 10) + 1; //returns random of 1-10
@@ -129,25 +129,21 @@ class Key {
 }
 
 class Person {
-  key: number;
+  private key: number;
+
   constructor(key: Key) {
     this.key = key.getSignature();
   }
   getKey(): number {
-    console.log(this.key);
-
     return this.key;
   }
 }
 
 class House {
   door: "open" | "closed" = "closed";
-  key: Key;
   tenants: Person[] = [];
 
-  constructor(key: Key) {
-    this.key = key;
-  }
+  constructor(protected key: Key) {}
 
   comeIn(person: Person) {
     if (this.door === "open") {
@@ -168,16 +164,27 @@ class MyHouse extends House {
   }
 
   openDoor(personKey: number) {
+    console.log(
+      "houseKey => ",
+      this.key.getSignature(),
+      "personKey => ",
+      personKey
+    );
     if (this.key.getSignature() === personKey) {
+      console.log("DOOR IS OPEN!");
       this.door = "open";
+    } else {
+      console.log("DOOR IS CLOSED!");
     }
   }
 }
 
-const key1 = new Key();
-const person1 = new Person(key1);
+const houseKey = new Key();
 
-const house1 = new MyHouse(key1);
-console.log(house1.door);
-house1.openDoor(person1.getKey());
-console.log(house1.door);
+const personKey = new Key();
+const person = new Person(personKey);
+
+const house = new MyHouse(houseKey);
+house.openDoor(person.getKey());
+house.comeIn(person);
+console.log(house.tenants);
