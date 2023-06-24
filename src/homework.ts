@@ -113,8 +113,6 @@ console.log({ value: 1 });
 
 console.log("user1 ===>>>> ", user1);
 
-// === HOUSE ====================
-
 // === KEY ====================
 
 class Key {
@@ -128,12 +126,16 @@ class Key {
   }
 }
 
+// === PERSON ====================
+
 class Person {
   constructor(private key: Key) {}
   getKey(): Key {
     return this.key;
   }
 }
+
+// === HOUSE ====================
 
 abstract class House {
   protected door: "open" | "closed" = "closed";
@@ -153,6 +155,8 @@ abstract class House {
   abstract openDoor(key: Key): void;
 }
 
+// === MY HOUSE ====================
+
 class MyHouse extends House {
   openDoor(key: Key) {
     if (key.getSignature() === this.key.getSignature()) {
@@ -163,9 +167,13 @@ class MyHouse extends House {
   }
 }
 
+// === MAGIC ====================
+
 const key = new Key();
 const person = new Person(key);
 const house = new MyHouse(key);
 
 house.openDoor(person.getKey());
 house.comeIn(person);
+
+// ===============================
