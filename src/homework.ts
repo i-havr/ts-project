@@ -96,7 +96,7 @@ type Page = {
   };
 };
 
-// HW module #3
+// HW module #4
 
 const User = function (this: any, email: string, password: string) {
   this.email = email;
@@ -177,3 +177,15 @@ house.openDoor(person.getKey());
 house.comeIn(person);
 
 // ===============================
+
+// HW module #5
+
+function getPromise() {
+  return new Promise((resolve) => {
+    resolve(["Text", 50]);
+  });
+}
+
+getPromise().then((data) => {
+  console.log(data);
+});
