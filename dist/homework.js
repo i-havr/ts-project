@@ -68,7 +68,7 @@ class Key {
 }
 class Person {
     constructor(key) {
-        this.key = key.getSignature();
+        this.key = key;
     }
     getKey() {
         return this.key;
@@ -83,29 +83,54 @@ class House {
     comeIn(person) {
         if (this.door === "open") {
             this.tenants.push(person);
+            console.log("The persone inside");
+        }
+        else {
+            console.log("Door is closed");
         }
     }
 }
 class MyHouse extends House {
-    constructor(key) {
-        super(key);
-    }
-    openDoor(personKey) {
-        console.log("houseKey => ", this.key.getSignature(), "personKey => ", personKey);
-        if (this.key.getSignature() === personKey) {
-            console.log("DOOR IS OPEN!");
+    openDoor(key) {
+        if (key.getSignature() === this.key.getSignature()) {
             this.door = "open";
+            return;
         }
-        else {
-            console.log("DOOR IS CLOSED!");
-        }
+        console.log("The key doesn't fit this house!");
     }
 }
-const houseKey = new Key();
-const personKey = new Key();
-const person = new Person(personKey);
-const house = new MyHouse(houseKey);
+const key = new Key();
+const person = new Person(key);
+const house = new MyHouse(key);
 house.openDoor(person.getKey());
 house.comeIn(person);
-console.log(house.tenants);
+function getPromise() {
+    return new Promise((resolve) => {
+        resolve(["Text", 50]);
+    });
+}
+getPromise().then((data) => {
+    console.log(data);
+});
+function compare(top, bottom) {
+    return {
+        name: top.name,
+        color: top.color,
+        position: bottom.position,
+        weight: bottom.weight,
+    };
+}
+function merge(objA, objB) {
+    return Object.assign(objA, objB);
+}
+class Component {
+    constructor(props) {
+        this.props = props;
+    }
+}
+class Page extends Component {
+    pageInfo() {
+        console.log(this.props.title);
+    }
+}
 //# sourceMappingURL=homework.js.map
