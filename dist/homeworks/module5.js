@@ -28,4 +28,4 @@ class Page extends Component {
         console.log(this.props.title);
     }
 }
-//# sourceMappingURL=homework.js.map
+//# sourceMappingURL=module5.js.map
