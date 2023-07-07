@@ -55,4 +55,5 @@ Controller2 = __decorate([
 ], Controller2);
 const controller2 = new Controller2();
 const controller3 = new Controller2();
+const controller4 = new Controller2();
 //# sourceMappingURL=module6-decorators.js.map
