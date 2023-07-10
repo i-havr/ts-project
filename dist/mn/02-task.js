@@ -14,4 +14,4 @@ function slice(str, start, end) {
     return newStr;
 }
 console.log(slice("hello", 0));
-//# sourceMappingURL=02-function-task.js.map
+//# sourceMappingURL=02-task.js.map

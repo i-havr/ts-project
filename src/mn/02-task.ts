@@ -1,4 +1,4 @@
-function slice(str: string, start: number, end?: number) {
+function slice(str: string, start: number, end?: number): string {
   let newStr = "";
 
   let lastIndex: number;
@@ -16,4 +16,4 @@ function slice(str: string, start: number, end?: number) {
   return newStr;
 }
 
-// console.log(slice("hello", 0));
+console.log(slice("hello", 0));
