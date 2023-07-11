@@ -1,5 +1,7 @@
 const numbers = [1, 2, 3, 4, 5];
 
+const arr: (number | string)[] = [];
+
 //Два способи, як можна вказати тип масиву (наприклад масив рядків):
 const srings1: string[] = []; // - більш популярний синтаксис запису
 const srings2: Array<string> = [];

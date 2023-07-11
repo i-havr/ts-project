@@ -1,5 +1,6 @@
 "use strict";
 const numbers = [1, 2, 3, 4, 5];
+const arr = [];
 const srings1 = [];
 const srings2 = [];
 const motos1 = [];
