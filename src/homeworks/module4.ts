@@ -28,7 +28,7 @@ class Key {
 
 // === PERSON ====================
 
-class Person {
+export class Person {
   constructor(private key: Key) {}
   getKey(): Key {
     return this.key;

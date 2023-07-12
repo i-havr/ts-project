@@ -11,7 +11,7 @@ Admin содержит все те же ключи, плюс ключ role.
 
 Проверьте, что поля не пустые и выведите приветственное сообщение в консоль. */
 
-interface IUser {
+export interface IUser {
   login: string;
   email: string;
   password: string;
