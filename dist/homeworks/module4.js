@@ -1,4 +1,3 @@
-"use strict";
 const User = function (email, password) {
     this.email = email;
     this.password = password;
@@ -18,7 +17,7 @@ class Key {
         return this.signature;
     }
 }
-class Person {
+export class Person {
     constructor(key) {
         this.key = key;
     }

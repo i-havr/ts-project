@@ -1,0 +1,1 @@
+{"version":3,"file":"07-this.js","sourceRoot":"","sources":["../../../src/mn/02-intermediate-types/07-this.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,IAAI,GAAG;IAClB,EAAE,EAAE,GAAG;IACP,KAAK,EAAE,KAAK;IACZ,WAAW,EAAE;QACX,IAAI,CAAC,KAAK,GAAG,IAAI,CAAC;IACpB,CAAC;CACF,CAAC;AAGF,SAAS,cAAc,CAA0B,KAAY;IAC3D,IAAI,CAAC,QAAQ,GAAG,IAAI,CAAC;AACvB,CAAC"}
