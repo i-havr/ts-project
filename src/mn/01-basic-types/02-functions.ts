@@ -17,7 +17,7 @@ function crash(): never {
 
 // crash();
 
-const average = (...nums: number[]) => {
+export const average = (...nums: number[]) => {
   const sum = nums.reduce((current, total) => current + total, 0);
 
   return sum / nums.length;

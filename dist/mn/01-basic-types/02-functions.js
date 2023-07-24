@@ -1,4 +1,3 @@
-"use strict";
 function sum(a, b) {
     return a + b;
 }
@@ -8,7 +7,7 @@ function log(name, userId) {
 function crash() {
     throw new Error("crash");
 }
-const average = (...nums) => {
+export const average = (...nums) => {
     const sum = nums.reduce((current, total) => current + total, 0);
     return sum / nums.length;
 };

@@ -7,4 +7,6 @@ export function createMap(list) {
         return result;
     };
 }
+const mapNums = createMap([1, 2, 3]);
+const result = mapNums((num) => num + 2);
 //# sourceMappingURL=07-task.js.map
