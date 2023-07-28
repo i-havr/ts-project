@@ -1,17 +1,13 @@
 {
-  "name": "tscourse",
+  "name": "ts-project",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "concurrently \"lite-server\" \"tsc -w\"",
+    "start": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^2.6.1",
-    "concurrently": "^8.2.0"
-  }
+  "license": "ISC"
 }
