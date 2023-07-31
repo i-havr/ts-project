@@ -35,3 +35,4 @@ export class Car extends Vehicle {
 
 const car1 = new Car("red", 200);
 // car1.color = 'blue'
+// car2.color = 'orange'
